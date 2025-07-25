@@ -1,1 +1,1 @@
-The data will be uploaded to figshare and then made public.
+The data is available at https://figshare.com/s/659a3ae671e0ed3c56ef.
