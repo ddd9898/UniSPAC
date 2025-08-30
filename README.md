@@ -5,6 +5,10 @@
 
 
 ***
+## System requirements
+
+Note⏰: Note: This is a PYQT-based demonstration. If you wish to use the UniSPAC tool directly, we recommend using napari-UniSPAC. To reproduce the training process, please refer to the  the `training` folder.
+
 ### System requirements
 
 It is recommended to deploy the software on a Linux system. Pre-install PyQt5 (Qt) and PyTorch. Devices that support cuda allow for smoother software usage. 
@@ -43,6 +47,8 @@ If you want to apply UniSPAC to your own data, the  [napari plugin for UniSPAC](
 ```shell
 pip install napari-UniSPAC
 ```
+The installation should take a few minutes, depending on your network conditions.
+
 ## Contact
 
 
