@@ -7,7 +7,7 @@
 ***
 ### Note⏰
 
-This is a PYQT-based demonstration. If you wish to use the UniSPAC tool directly, we recommend using napari-UniSPAC. To reproduce the training process, please refer to the  the `training` folder.
+This is a PYQT-based demonstration. If you wish to use the UniSPAC tool directly, we recommend using  [napari-UniSPAC](https://github.com/ddd9898/napari-UniSPAC). To reproduce the training process, please refer to the  the `training` folder.
 
 ### System requirements
 
