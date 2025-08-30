@@ -1,6 +1,6 @@
-# UniSPAC
+# UniSPAC [A Unified Segmentation framework for Proofreading and Annotation in Connectomics]
 
-![Supplementary Video 1](./data/Supplementary_Video_1.gif)
+![Supplementary Video 1](./data/Supplementary_Video_a.gif)
 
 
 
@@ -42,8 +42,9 @@ python demo.py
 **Brief tutorial:** Click the <u>left mouse button</u> to add a **positive** point prompt, and the <u>right mouse button</u> to add a **negative** point prompt. Press <kbd>Q</kbd> to undo the previous point prompt, press <kbd>E</kbd> to clear all prompts.
 
 ## Napari plugin
-
+![Supplementary Video 2](./data/Supplementary_Video_b.gif)
 If you want to apply UniSPAC to your own data, the  [napari plugin for UniSPAC](https://github.com/ddd9898/napari-UniSPAC)  might come in handy. Assuming you are a veteran napari user, installing [napari-UniSPAC](https://pypi.org/project/napari-UniSPAC/)  with the following command is sufficient.
+
 ```shell
 pip install napari-UniSPAC
 ```
