@@ -7,10 +7,10 @@ human, drosophila, mouse, and zebrafinch.
 
 ## Repository Overview
 
-- `train_ACRLSD_2d_neo.py`: train the 2D ACRLSD backbone.
-- `train_segEM2d_plus.py`: train the 2D promptable segEM head with multi-step prompt supervision.
-- `train_ACRLSD_3d_neo_preLSD.py`: train the 3D ACRLSD backbone using precomputed LSD caches.
-- `train_segEM3d_trace.py`: train the 3D trace model with a frozen 3D ACRLSD teacher.
+- `train_ACRLSD_2d_neo.py`: train the 2D ACRLSDneo backbone.
+- `train_segEM2d_plus.py`: train the 2D promptable UniSPAC head with multi-step prompt supervision.
+- `train_ACRLSD_3d_neo_preLSD.py`: train the 3D ACRLSDneo backbone using precomputed LSD caches.
+- `train_segEM3d_trace.py`: train the 3D UniSPAC trace model with a frozen 3D ACRLSDneo teacher.
 - `test_segEM2d_neo.py`: evaluate 2D promptable segmentation on fixed prompts.
 - `process_lsd.py`: precompute full-volume LSD targets.
 - `tran_lsd_to_zarr.py`: convert LSD `.npy` caches to chunked `.zarr` stores.
@@ -67,7 +67,7 @@ to be committed to git.
 
 ## LSD Precomputation
 
-The 2D ACRLSD and 3D preLSD experiments use precomputed LSD targets. Generate the
+The 2D ACRLSDneo and 3D preLSD experiments use precomputed LSD targets. Generate the
 full-volume cache once, then convert it to chunked Zarr for faster training I/O:
 
 ```bash
@@ -81,7 +81,7 @@ python tran_lsd_to_zarr.py \
   --output-dir ./LSD_cache
 ```
 
-By default, the 2D ACRLSD code reads `./LSD_cache`. For 3D preLSD training, pass
+By default, the 2D ACRLSDneo code reads `./LSD_cache`. For 3D preLSD training, pass
 `--lsd-cache-dir ./LSD_cache` if the cache is stored in the repository root.
 
 ## Reproducing Main Experiments
