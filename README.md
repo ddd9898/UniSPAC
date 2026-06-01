@@ -1,13 +1,9 @@
 # UniSPAC
 
-This repository contains the PyTorch implementation used for UniSPAC experiments on
-promptable electron microscopy (EM) instance segmentation across species. The main
-reproduction workflow follows leave-one-species-out training on four held-out species:
+This repository contains the PyTorch implementation used for UniSPAC experiments on  
+promptable electron microscopy (EM) instance segmentation across species. The main  
+reproduction workflow follows leave-one-species-out training on four held-out species:  
 human, drosophila, mouse, and zebrafinch.
-
-The code includes 2D and 3D ACRLSD pretraining, prompt-conditioned segEM training,
-fixed-prompt evaluation, and utilities for precomputing local shape descriptor (LSD)
-targets.
 
 ## Repository Overview
 
