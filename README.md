@@ -14,7 +14,7 @@ human, drosophila, mouse, and zebrafinch.
 - `test_segEM2d_neo.py`: evaluate 2D promptable segmentation on fixed prompts.
 - `process_lsd.py`: precompute full-volume LSD targets.
 - `tran_lsd_to_zarr.py`: convert LSD `.npy` caches to chunked `.zarr` stores.
-- `compare/ori2section_v2.py`: export deterministic 2D test slices and prompts.
+- `fix_2d_prompts.py`: export deterministic 2D test slices and prompts.
 - `utils/`: dataset loading, augmentation, affinity targets, LSD targets, and prompt sampling utilities.
 
 ## Installation
@@ -35,6 +35,32 @@ pip install tqdm tifffile h5py matplotlib numcodecs
 The full experiments require CUDA GPUs, large host memory, and high-throughput storage.
 The 3D precomputed-LSD training script supports single-node multi-GPU training via
 `--num-gpus`.
+
+## Data and model availability
+
+All files required to reproduce the reported experiments (datasets, trained  
+checkpoints, precomputed LSD caches, and fixed-prompt evaluation assets) are provided via  
+the project OneDrive folder: `https://1drv.ms/f/c/88a3ba3c5aa53eeb/IgB7ui3_ZFZ_Q4GpuLhe1umHART24jjCFeUzyIq2qZyDmJg?e=baCPvi`.
+
+The folder contains:
+
+- `data.zip`: full data for all four species. Unzip and place under `./data/` (see the
+expected dataset roots in **Data Preparation**).
+- `checkpoints/`: trained model weights used in the paper experiments.
+- `LSD_cache.zip`: precomputed LSD targets produced by `process_lsd.py` and
+`tran_lsd_to_zarr.py`. 
+- `compare_process.zip`: fixed 2D prompt assets for evaluation, produced by
+`fix_2d_prompts.py`.
+
+After downloading, the repository root is expected to contain (at minimum) the following
+layout:
+
+```text
+./data/                 # unzip data.zip here
+./LSD_cache/            # unzip LSD_cache.zip here (optional if recomputing)
+./compare/processed/    # unzip compare_process.zip here (or regenerate via fix_2d_prompts.py)
+./output/checkpoints/   # copy/symlink trained weights here (or train from scratch)
+```
 
 ## Data Preparation
 
@@ -62,12 +88,9 @@ data/AxonEM/EM30-H-axon-train-9vol/
 data/AxonEM/EM30-M-axon-train-9vol/
 ```
 
-Large datasets, LSD caches, checkpoints, logs, and evaluation outputs are not intended
-to be committed to git.
-
 ## LSD Precomputation
 
-The 2D ACRLSDneo and 3D preLSD experiments use precomputed LSD targets. Generate the
+The ACRLSDneo experiments use precomputed LSD targets. Generate the  
 full-volume cache once, then convert it to chunked Zarr for faster training I/O:
 
 ```bash
@@ -81,8 +104,7 @@ python tran_lsd_to_zarr.py \
   --output-dir ./LSD_cache
 ```
 
-By default, the 2D ACRLSDneo code reads `./LSD_cache`. For 3D preLSD training, pass
-`--lsd-cache-dir ./LSD_cache` if the cache is stored in the repository root.
+By default, the ACRLSDneo code reads `./LSD_cache`.
 
 ## Reproducing Main Experiments
 
@@ -166,10 +188,20 @@ python test_segEM2d_neo.py --species zebrafinch \
 The fixed-prompt export writes to `./compare/processed/` by default. Evaluation results
 are written to `./output/segEM2d-plus_eval/`.
 
-## Outputs
 
-Training checkpoints are saved under `./output/checkpoints/`, and logs are saved under  
-`./output/log/`. Checkpoint filenames encode the held-out species and key hyperparameters.
+
+## Reproducibility notes
+
+- **Using pre-trained weights**: download `checkpoints/` from the OneDrive folder and place
+the `.model` files under `./output/checkpoints/`. You can then run evaluation directly
+(see **Fixed-Prompt Evaluation**) without re-training.
+- **Training from scratch**: you can either download `LSD_cache.zip` and unzip it to
+`./LSD_cache/`, or recompute it locally using `process_lsd.py` and `tran_lsd_to_zarr.py`
+(see **LSD Precomputation**). The ACRLSDneo-3D preLSD training script additionally  
+supports passing the cache location via `--lsd-cache-dir`.
+- **Fixed prompts for fair comparison**: to reproduce the exact deterministic fixed-point
+prompts used in evaluation, use the provided `compare_process.zip` and unzip to
+`./compare/processed/`, or regenerate them with `fix_2d_prompts.py`.
 
 ## Citation
 
