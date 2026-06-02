@@ -40,7 +40,7 @@ The 3D precomputed-LSD training script supports single-node multi-GPU training v
 
 All files required to reproduce the reported experiments (datasets, trained  
 checkpoints, precomputed LSD caches, and fixed-prompt evaluation assets) are provided via  
-the project OneDrive folder: `https://1drv.ms/f/c/88a3ba3c5aa53eeb/IgB7ui3_ZFZ_Q4GpuLhe1umHART24jjCFeUzyIq2qZyDmJg?e=baCPvi`.
+the project [OneDrive folder](https://1drv.ms/f/c/88a3ba3c5aa53eeb/IgB7ui3_ZFZ_Q4GpuLhe1umHART24jjCFeUzyIq2qZyDmJg?e=baCPvi).
 
 The folder contains:
 
