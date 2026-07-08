@@ -29,7 +29,6 @@ conda activate unispac
 # See https://pytorch.org/get-started/locally/
 
 pip install -r requirements.txt
-pip install tqdm tifffile h5py matplotlib numcodecs
 ```
 
 The full experiments require CUDA GPUs, large host memory, and high-throughput storage.
