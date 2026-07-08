@@ -154,8 +154,7 @@ with `--backbone-checkpoint`.
 
 ## Fixed-Prompt Evaluation
 
-Before evaluating 2D promptable segmentation, export deterministic test sections and
-prompts:
+Before evaluating 2D promptable segmentation, export deterministic test sections and prompts. Alternatively, you can skip this step and directly use the prompts located in `./compare/processed/` after extracting `compare_process.zip`.
 
 ```bash
 python fix_2d_prompts.py --species human --seed 1998
