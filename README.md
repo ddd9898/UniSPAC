@@ -103,7 +103,7 @@ python tran_lsd_to_zarr.py \
   --output-dir ./LSD_cache
 ```
 
-By default, the ACRLSDneo code reads `./LSD_cache`.
+By default, the ACRLSDneo code reads `./LSD_cache`. You can also skip this step and directly use the **LSD_cache.zip** file in the [OneDrive folder](https://1drv.ms/f/c/88a3ba3c5aa53eeb/IgB7ui3_ZFZ_Q4GpuLhe1umHART24jjCFeUzyIq2qZyDmJg?e=baCPvi).
 
 ## Reproducing Main Experiments
 
